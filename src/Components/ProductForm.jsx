@@ -100,8 +100,8 @@ const ProductForm = ({ addProduct }) => {
     const isValid = validateForm();
     
     if (isValid) {
+      const urlData = import.meta.env.VITE_BACKEND_URL;
       try {
-        const urlData = import.meta.env.VITE_BACKEND_URL;
         const response = await fetch(`${urlData}/products`, {
           method: 'POST',
           headers: {

@@ -148,11 +148,11 @@ export const CartContext = createContext();
   const emptyCart = () => {
     setCartItems([]);
     setSelectedQuantities({});
-    toast.success('Carrito vaciado');
+    toast.success('Carrito vacio');
   };
 
  
-
+  //Guardar carrito en el back
   const handleCartBuy = async () => {
     try {
       const urlData = import.meta.env.VITE_BACKEND_URL;

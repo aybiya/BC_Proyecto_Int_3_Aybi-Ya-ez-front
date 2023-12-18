@@ -29,7 +29,6 @@
     }
 
     .form-product{
-   
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         justify-items: center;
@@ -59,26 +58,29 @@
             }
             
         }
-    
+        
+        .shipping{
+            margin-top: 1rem;
+        }
         &__btn{
             display: flex;
             justify-content: center;
-            align-items: center;
-            margin-top: 3rem;
-            font-size: F.$textSm;
-            color: white;
-            background-color: C.$primaryColor;
-            border: none;
-            border-radius: 5px;
-            padding: 0.5rem 1.5rem;
-            margin-bottom: 2rem;
-
-        }
-        &__btn:hover{
-            cursor: pointer;
-            color: C.$secondaryColor;
-            background-color: #c9e7f4;
-
+            button{
+                margin-top: 3rem;
+                font-size: F.$textSm;
+                color: white;
+                background-color: C.$primaryColor;
+                border: none;
+                border-radius: 5px;
+                padding: 0.5rem 1.5rem;
+                margin-bottom: 2rem;
+                &:hover{
+                    cursor: pointer;
+                    color: C.$secondaryColor;
+                    background-color: #c9e7f4;
+        
+                }
+            }
         }
 
         .error-message{
@@ -96,7 +98,7 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 0 5rem;
+            padding: 0 1rem;
         }
     }
 

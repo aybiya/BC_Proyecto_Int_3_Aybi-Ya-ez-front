@@ -47,7 +47,7 @@ const ProductForm = ({ addProduct }) => {
         error = value.trim().length >= 16 ? '' : 'Debe tener al menos 16 caracteres';
         break;
       case 'price':
-        error = value.trim() && /^\$?\d{1,3}(?:\.\d{3})*$/.test(value) && parseInt(value, 10) >= 1 ? '' : 'El precio debe ser mayor a 0';
+        error = value.trim() && /^\$?\d{1,3}(?:\.\d{3})*$/.test(value) && parseFloat(value) >= 1 ? '' : 'El precio debe ser mayor a 0';
         break;
       case 'stock':
         error = /^\d+$/.test(value) && parseInt(value, 10) >= 1 ? '' : 'Valor mínimo 1';
@@ -102,18 +102,21 @@ const ProductForm = ({ addProduct }) => {
     if (isValid) {
       const urlData = import.meta.env.VITE_BACKEND_URL;
       try {
+        const price = parseFloat(formData.price);
+        const id = parseFloat(formData._id);
+  
         const response = await fetch(`${urlData}/products`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json; charset=UTF-8',
           },
-          body: JSON.stringify({ ...formData }),  
+          body: JSON.stringify({ ...formData, price, id }), 
         });
-
+  
         if (response.ok) {
           const newProduct = await response.json();
           addProduct(newProduct);
-
+  
           setFormData({
             image: '',
             size: '',
@@ -124,7 +127,7 @@ const ProductForm = ({ addProduct }) => {
             shipping: false,
             _id: '',
           });
-
+  
           toast.success('Producto agregado exitosamente!');
         } 
       } catch (error) {
@@ -154,9 +157,9 @@ const ProductForm = ({ addProduct }) => {
   return (
     <section className='product-registration'>
       <h2>Datos del Producto</h2>
-      <form className='form-product' onSubmit={handleSubmit}>
-      <article className='form-product__group'>
-          {/* Input para 'image' */}
+      <form onSubmit={handleSubmit}>
+        <div className='form-product' >
+        <article className='form-product__group'>
           <label>
             Imagen
             <input
@@ -169,7 +172,6 @@ const ProductForm = ({ addProduct }) => {
           </label>
         </article>
         <article className='form-product__group'>
-          {/* Input para 'size' */}
           <label>
             Tamaño
             <input
@@ -182,7 +184,6 @@ const ProductForm = ({ addProduct }) => {
           </label>
         </article>
         <article className='form-product__group'>
-          {/* Input para 'model' */}
           <label>
             Modelo
             <input
@@ -195,7 +196,6 @@ const ProductForm = ({ addProduct }) => {
           </label>
         </article>
         <article className='form-product__group'>
-          {/* Input para 'description' */}
           <label>
             Descripción
             <input
@@ -207,11 +207,10 @@ const ProductForm = ({ addProduct }) => {
           </label>
         </article>
         <article className='form-product__group'>
-          {/* Input para 'price' */}
           <label>
             Precio
             <input
-              type="text"
+              type="number"
               name="price"
               value={formData.price}
               onChange={handleChange}
@@ -220,11 +219,10 @@ const ProductForm = ({ addProduct }) => {
           </label>
         </article>
         <article className='form-product__group'>
-          {/* Input para 'stock' */}
           <label>
             Stock
             <input
-              type="text"
+              type="number"
               name="stock"
               value={formData.stock}
               onChange={handleChange}
@@ -232,24 +230,32 @@ const ProductForm = ({ addProduct }) => {
             {errors.stock && <p className='error-message'>{errors.stock}</p>}
           </label>
         </article>
-        <article className='form-product__group'>
-          <input
-              type="checkbox"
-              name="shipping"
-              checked={formData.shipping}
-              onChange={handleChange}
-            />
+          <article className='form-product__group'>
           <label>
             ID
             <input
               type="number"
               name="_id"
-              value={formData.id}
+              value={formData._id}
               onChange={handleChange}
             />
           </label>
+          </article>
+        <article className='form-product__group shipping'>
+          <label>
+            Envíos
+            <input
+                type="checkbox"
+                name="shipping"
+                checked={formData.shipping}
+                onChange={handleChange}
+              />
+          </label>
         </article>
-        <button className='form-product__btn' type="submit" onClick={handleAddProductBtn}>Agregar</button>
+        </div>
+        <div className='form-product__btn'>
+        <button type="submit" onClick={handleAddProductBtn}>Agregar</button>
+        </div>
       </form>
     </section>
   );

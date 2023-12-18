@@ -654,10 +654,14 @@ body .main-container .main .cards-container .product-card .addCart-btn button:ho
   padding: 0.8rem;
   margin-left: 1.8rem;
 }
+.product-registration .form-product .shipping {
+  margin-top: 1rem;
+}
 .product-registration .form-product__btn {
   display: flex;
   justify-content: center;
-  align-items: center;
+}
+.product-registration .form-product__btn button {
   margin-top: 3rem;
   font-size: 1rem;
   color: white;
@@ -667,7 +671,7 @@ body .main-container .main .cards-container .product-card .addCart-btn button:ho
   padding: 0.5rem 1.5rem;
   margin-bottom: 2rem;
 }
-.product-registration .form-product__btn:hover {
+.product-registration .form-product__btn button:hover {
   cursor: pointer;
   color: rgb(103, 121, 127);
   background-color: #c9e7f4;
@@ -683,7 +687,7 @@ body .main-container .main .cards-container .product-card .addCart-btn button:ho
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 0 5rem;
+    padding: 0 1rem;
   }
 }
 @media (min-width: 870px) and (max-width: 1099px) {

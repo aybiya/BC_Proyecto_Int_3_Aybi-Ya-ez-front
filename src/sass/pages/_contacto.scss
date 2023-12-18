@@ -1,0 +1,181 @@
+/* // Contacto */
+
+@use '../styles/h-fonts.scss' as F;
+@use '../styles/h-colors.scss' as C;
+@use '../styles/mixin.scss' as M;
+
+.contact{
+    background-color: #F2F2F2;
+    border-radius: 15px;
+    margin-left: 10%;
+    margin-right: 10%;
+    display: grid;
+    justify-items: center;
+    
+
+    h2{
+        font-family: F.$titlesFont;
+        font-size: F.$textLg;
+        text-align: center;
+        letter-spacing: 2px;
+        margin-top: 0;
+        padding: 1rem 0;
+        color: #f6f4f4;
+        background-color: C.$primaryColor;
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+        width: 100%;
+
+    }
+
+    .contact-form{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 0 5rem;
+        
+        &__info{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            justify-items: center;
+            align-items: center;
+        }
+        
+        &__group{
+            padding: 2rem 1rem 1rem 1rem;
+
+            label{
+                font-size: F.$textSm;
+                font-weight: F.$textSemiBold;
+            }
+
+            input{
+                font-size: F.$textSm;
+                margin: 0.5rem 0;
+                font-weight: F.$textLight;
+                color: C.$primaryColor;
+                background-color: white;
+                border-radius: 10px;
+                border: none;
+                padding: 0.8rem;
+                margin-left: 1.8rem;
+
+            }
+            
+        }
+        
+         &__reason{
+            margin-top: 1rem;
+            padding: 2rem 1rem 1rem 1rem;
+            width: 100%;
+            font-size: 0.7rem;
+            font-size: F.$textSm;
+            font-weight: F.$textSemiBold;
+            margin-left: 2rem;
+
+            select{
+                margin: 0 1.8rem;
+                color: C.$primaryColor;
+                background-color: white;
+                border-radius: 10px;
+                border: none;
+                padding: 0.8rem;
+            }
+        }
+
+        &__message {
+            width: 70%;
+            margin-top: 2rem;
+            width: 97%;
+            font-size: 0.7rem;
+            font-size: F.$textSm;
+            font-weight: F.$textSemiBold;
+
+            textarea{ 
+                width: 90%;;
+                height: 10vh;
+                color: C.$primaryColor;
+                background-color: white;
+                border-radius: 10px;
+                border: none;
+                padding: 1rem;
+                margin-top: 1rem;
+            } 
+
+        }
+
+        & button{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 3rem;
+            font-size: F.$textSm;
+            color: white;
+            background-color: C.$primaryColor;
+            border: none;
+            border-radius: 5px;
+            padding: 0.5rem 1.5rem;
+            margin-bottom: 2rem;
+
+        }
+        & button:hover{
+            cursor: pointer;
+            color: C.$secondaryColor;
+            background-color: #c9e7f4;
+
+        }
+
+        .error-message{
+            color: rgb(175, 2, 2);
+            font-size: 0.8rem;
+            text-align: left;
+            width: 75%;
+            font-weight: F.$textSemiBold;
+        }
+
+    }
+
+    //Footer BP mobile xl
+    @media (max-width: 869px){
+        margin-left: 3%;
+        margin-right: 3%;
+        button{
+            margin-left: 30%;
+            margin-right: 30%;
+        }
+        .contact-form{
+            display: grid;
+            grid-template-columns: 1fr;
+            justify-content: center;
+            align-content: center;
+            padding: 0 5rem;
+
+             &__info{
+            grid-template-columns: 1fr;
+            justify-content: center;
+            align-items: center;
+            }
+            &__group{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                }
+            &__reason{
+                padding: 0;
+            }
+        }
+    }
+
+    //Footer BP tablet xl
+    @media (min-width: 870px) and (max-width: 1099px){
+        .fcontact-form{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            justify-items: center;
+            align-items: start;
+            width: 100%;
+        }
+    }
+}

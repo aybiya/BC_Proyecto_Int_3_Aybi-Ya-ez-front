@@ -1,0 +1,196 @@
+/* // Carrito */
+
+@use '../styles/h-fonts.scss' as F;
+@use '../styles/h-colors.scss' as C;
+@use '../styles/mixin.scss' as M;
+
+.cart-modal{
+    display: flex;
+    flex-direction: column;
+
+    .close-btn{
+        font-size: F.$textMd;
+        border: none;
+        color: C.$secondaryColor;
+        background-color: white;
+        margin: 0 0 0 auto;
+
+        &:hover{
+            cursor: pointer;
+            color: C.$cyanColor;
+        }
+    }
+
+    .cart-container{
+        background-color: #F2F2F2;
+        border-radius: 15px;
+        margin-left: 8%;
+        margin-right: 8%;
+        display: grid;
+        justify-items: center;
+        
+        h2{
+            font-family: F.$titlesFont;
+            font-size: F.$textLg;
+            text-align: center;
+            letter-spacing: 2px;
+            margin-top: 0;
+            padding: 1rem 0;
+            color: #f6f4f4;
+            background-color: C.$primaryColor;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+            width: 100%;
+    
+        }
+
+        article{
+            margin-right: 2.5rem;
+            
+            ul{
+                .total-price{
+                    display: flex;
+                    justify-content: right;
+                    align-items: center;
+                    p{
+                        font-size: 1.2rem;
+                        padding-left: 1.5rem;
+                        font-weight: F.$textBold;
+
+                    }
+                    p:first-child{
+                        font-size: F.$textMd;
+                    }
+                }
+
+                .cart-buttons{
+                    display: flex;
+                    justify-content: center;
+                    button{
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        margin-top: 3rem;
+                        font-size: 1.1rem;
+                        border: none;
+                        border-radius: 5px;
+                        padding: 0.6rem 1rem;
+                        margin-bottom: 2rem;
+                        margin: 2.5rem 2rem;
+                    }
+
+                    button:first-child{
+                         color: white;
+                        background-color: C.$secondaryColor;
+                        &:hover{
+                            cursor: pointer;
+                            color: C.$secondaryColor;
+                            background-color: C.$lightGrayColor;
+                
+                        }
+                    }
+                    button:last-child{
+                        color: C.$secondaryColor;
+                        background-color: C.$cyanColor;
+                       &:hover{
+                        cursor: pointer;
+                        color: white;
+                       background-color: C.$primaryColor;
+            
+                    }
+                   }
+                }
+                    li{
+                        list-style: none;
+                        display: flex;
+                        flex-direction: row;
+                        align-items: start;
+                        justify-content: center;
+                        padding: 2rem 0;
+                        gap: 0.8rem;
+                        border-top: 1px solid C.$GrayColor;
+                        border-bottom: 1px solid C.$GrayColor;
+    
+                        picture{
+                            img{
+                                width: 45px;
+                                border-radius: 40px;
+                            }
+                        }
+    
+                        .bold-tag{
+                            font-weight: F.$textSemiBold;
+    
+                        }
+    
+                        div{
+                            display: flex;
+                            flex-direction: row;
+                            align-items: start;
+                            article{
+                                display: flex;
+                                flex-direction: column;
+                                align-items: center;
+                                padding-right: 0.8rem;
+                                margin: 0;
+                                p{
+                                    margin: 0;
+                                    padding: 0.3rem;
+                                }
+                            }
+                        }
+                        picture, button{
+                            align-self: center;
+                        }
+                        button{
+                            color: C.$primaryColor;
+                            font-size: 1.5rem;
+                            border: none;
+                            border-radius: 10px;
+                            font-family: F.$mainFont;
+    
+                            &:hover{
+                                cursor: pointer;
+                                color: C.$cyanColor;
+                            }
+                        }
+    
+                        //CartProducts BP hasta 935px
+                        @media (max-width: 935px){
+                                flex-direction: column;
+                                align-items: center;
+                                justify-content: center;
+                                gap: 1rem;
+                                margin: 0.53rem 0.53rem 3rem 0.53rem;
+    
+                                div{
+                                    flex-direction: row;
+                                    align-items: start;
+                                    
+                                    article{
+                                        flex-direction: column;
+                                        align-items: start;
+                                        padding: 0;
+                                        p{
+                                            margin: 0;
+                                            padding: 0.3rem 0.8rem;
+                                        }
+                                    }
+                                }
+                                div:nth-child(3){
+                                    & article{
+                                        flex-direction: row;
+                                    }
+                                }
+                        }
+
+                        @include M.medias(mobile){
+                            p{
+                                font-size: 0.8rem;
+                            }
+                        }
+                    }
+            }
+        }
+    }
+}

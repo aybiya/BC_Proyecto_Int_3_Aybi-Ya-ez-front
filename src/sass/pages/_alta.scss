@@ -1,0 +1,113 @@
+/* // Alta */
+
+@use '../styles/h-fonts.scss' as F;
+@use '../styles/h-colors.scss' as C;
+@use '../styles/mixin.scss' as M;
+
+.product-registration{
+    background-color: #F2F2F2;
+    border-radius: 15px;
+    margin-left: 10%;
+    margin-right: 10%;
+    display: grid;
+    justify-items: center;
+    
+
+    h2{
+        font-family: F.$titlesFont;
+        font-size: F.$textLg;
+        text-align: center;
+        letter-spacing: 2px;
+        margin-top: 0;
+        padding: 1rem 0;
+        color: #f6f4f4;
+        background-color: C.$primaryColor;
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+        width: 100%;
+
+    }
+
+    .form-product{
+   
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        justify-items: center;
+        align-items: start;
+        width: 100%;
+
+        &__group{
+            
+            padding: 2rem 1rem 1rem 1rem;
+
+            label{
+                font-size: F.$textSm;
+                font-weight: F.$textSemiBold;
+            }
+
+            input{
+                font-size: F.$textSm;
+                margin: 0.5rem 0;
+                font-weight: F.$textLight;
+                color: C.$primaryColor;
+                background-color: white;
+                border-radius: 10px;
+                border: none;
+                padding: 0.8rem;
+                margin-left: 1.8rem;
+
+            }
+            
+        }
+    
+        &__btn{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 3rem;
+            font-size: F.$textSm;
+            color: white;
+            background-color: C.$primaryColor;
+            border: none;
+            border-radius: 5px;
+            padding: 0.5rem 1.5rem;
+            margin-bottom: 2rem;
+
+        }
+        &__btn:hover{
+            cursor: pointer;
+            color: C.$secondaryColor;
+            background-color: #c9e7f4;
+
+        }
+
+        .error-message{
+            color: rgb(175, 2, 2);
+            font-size: 0.8rem;
+            text-align: center;
+        }
+
+    }
+
+    //Footer BP mobile xl
+    @media (max-width: 869px){
+        .form-product{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 0 5rem;
+        }
+    }
+
+    //Footer BP tablet xl
+    @media (min-width: 870px) and (max-width: 1099px){
+        .form-product{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            justify-items: center;
+            align-items: start;
+            width: 100%;
+        }
+    }
+}

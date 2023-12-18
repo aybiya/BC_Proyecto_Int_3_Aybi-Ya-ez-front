@@ -1,0 +1,126 @@
+/* // Nosotros */
+
+@use '../styles/h-fonts.scss' as F;
+@use '../styles/h-colors.scss' as C;
+@use '../styles/mixin.scss' as M;
+
+.us-container{
+    margin: 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+
+    .us-card{
+        background-color: rgb(244, 246, 249);
+        border-radius: 10px;
+        display: grid;
+        grid-template-columns: 1fr 3fr;
+        justify-items: center;
+        align-items: center;
+        width: 100%;
+
+        picture{
+            width: 100%;
+            height: 100%;
+            overflow: hidden; 
+            img{
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                border-radius: 10px 0 0 10px;
+            }
+        }
+
+        div{
+            padding: 0 3rem;
+
+            h3, .us-intro{
+                text-align: center;
+            }
+            h3{
+                line-height: 0.4;
+                color: C.$primaryColor;
+                font-size: F.$textLg;
+            }
+            .us-intro{
+                color: hsl(228, 12%, 48%);
+                font-size: 14px;
+                text-transform: uppercase;
+                letter-spacing: 2px;
+                font-size: 1rem;
+                line-height: 0.9;
+            }
+            p{
+                font-size: 1.2rem;
+                line-height: 1.6;
+            }
+        }
+    }
+
+    .us-card:nth-child(2){
+        background-color: rgb(244, 246, 249);
+        border-radius: 10px;
+        display: grid;
+        grid-template-columns: 3fr 1fr;
+        justify-items: center;
+        align-items: center;
+        width: 95%;
+
+        picture{
+            img{
+                border-radius: 0 10px 10px 0;
+            }
+        }
+        
+    }
+
+    //Footer BP mobile & tablet
+    @media (min-width: 320px) and (max-width: 1023px){
+        .us-card, .us-card:nth-child(2){
+            grid-template-columns: 1fr;
+            border-radius: 15px;
+            padding-bottom: 0.5rem;
+
+            picture{
+                width: 100%;
+                height: 100%;
+                overflow: hidden; 
+                img{
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    border-radius: 10px 10px 0 0;
+                }
+            }
+            div{
+                .us-intro{
+                    line-height: 1.6;
+                }
+            }
+        }
+        
+        .us-card:nth-child(2){
+
+            .us-elements:nth-child(1){
+                order:2;
+            }
+            .us-elements:nth-child(2){
+                order:1;
+            }
+        }
+    }
+    //Footer BP mobile
+    @include M.medias(mobile){
+        .us-card, .us-card:nth-child(2){
+            width: 90%;
+        }
+    } 
+    //Footer BP tablet
+     @include M.medias(tablet){
+        .us-card, .us-card:nth-child(2){
+            width: 70%;
+        }
+    }
+}

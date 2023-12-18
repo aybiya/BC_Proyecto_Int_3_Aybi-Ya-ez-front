@@ -1,0 +1,118 @@
+/* // Navbar */
+
+@use './h-fonts' as F;
+@use './h-colors' as C;
+@use './mixin.scss' as M;
+
+header{
+    margin: 0%;
+    width: 100vw;
+    .navBar{
+        background-color: C.$lightGrayColor;
+        box-shadow: 2px 2px 20px 0.8px rgb(173, 175, 177);
+        display: flex;
+        justify-content:right;
+        align-items: center;
+        //para que quede fija
+        position: fixed;
+        top: 0; 
+        left: 0;
+        width: 100%;
+        
+        .logo{
+            width: 50%;
+            padding: 5%;
+            margin-right: auto;
+        }
+        
+        .navBar-menu {
+            display: none;
+        } 
+
+        .navBar-cartBtn, .navBar-cartBtn-desk{
+            color: C.$GrayColor;
+            background-color: C.$lightGrayColor;
+            border: none;
+            font-size: 1.5rem;
+            padding-right: 2rem;
+
+            &:hover{
+                color: C.$primaryColor;
+                cursor: pointer;
+            }
+        }
+
+        ul{
+            margin-left: auto;
+            padding-right: 2rem;
+            width: 35%;
+            display: flex;
+            justify-content: space-around;
+            list-style: none;
+
+            a{
+                color: C.$GrayColor;
+                font-family: F.$mainFont;
+                font-size: F.$textSm;
+                text-decoration: none;
+                    
+                &:hover{
+                    color: white;
+                    cursor: pointer;
+                }
+            }
+
+            /* .active{
+                color: C.$secondaryColor;
+                font-weight: F.$textSemiBold;
+            } */
+        }
+
+        //NavbBar BP mobile
+        @include M.medias(mobile) {
+            justify-content:space-evenly;
+            //Bóton hamburguesa
+            flex-wrap: wrap;
+            .navBar-cartBtn-desk{
+                display: none;
+            }
+            .navBar-menu{
+                color: C.$GrayColor;
+                display: block;
+                margin-left: auto;
+                    .navBar-bars-btn{
+                        font-size: 1.5rem;
+                        padding-right: 2rem;
+                    }
+            }
+            
+            ul{
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                background-color: rgb(242, 242, 242);
+                margin-bottom: 0;
+                li{
+                    margin: 10px;
+                    padding-left: 1.3rem;
+                }
+            }  
+                .navBar-cartBtn{
+                    margin:auto 0 0 0;
+                    font-size: 1.8rem;
+                    background-color: rgb(242, 242, 242);
+                } 
+        } 
+
+        //NavbBar BP tablet
+        @include M.medias(tablet){
+            ul{
+                padding-right: 2rem;
+                li {
+                    padding:0 1rem;
+                }
+            }
+        }
+
+    }
+}

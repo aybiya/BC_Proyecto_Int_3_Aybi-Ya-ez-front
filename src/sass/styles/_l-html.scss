@@ -1,0 +1,26 @@
+/* // html */
+
+@use './h-fonts' as F;
+@use './h-colors' as C;
+@use './mixin.scss' as M;
+
+
+html {
+    font-family: F.$mainFont;
+    font-size: F.$fontSize;
+    font-weight: F.$textRegular;
+    line-height: F.$lineHeight;
+    color: C.$secondaryColor; 
+
+    h1 {
+        font-family: F.$titlesFont;
+        font-weight: F.$textBlack;
+        color: C.$primaryColor;
+        text-align: center;
+        @include M.medias(mobile){
+            font-size: F.$textLg;
+            font-weight: F.$textBlack;
+        }
+    }
+   
+} 

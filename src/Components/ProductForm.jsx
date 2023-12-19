@@ -113,12 +113,12 @@ const ProductForm = ({ addProduct }) => {
     const isValid = validateForm();
 
     if (isValid) {
-      const urlData = import.meta.env.VITE_BACKEND_URL;
+
       try {
         const price = parseFloat(formData.price);
         const id = parseFloat(formData._id);
 
-        const response = await fetch(`${urlData}/products`, {
+        const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/products`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json; charset=UTF-8',

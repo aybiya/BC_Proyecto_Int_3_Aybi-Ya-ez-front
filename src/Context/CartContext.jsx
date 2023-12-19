@@ -143,7 +143,7 @@ export const CartContext = createContext();
     try {
       const urlData = import.meta.env.VITE_BACKEND_URL;
       
-      const response = await fetch(`${urlData}/cart`, {
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/cart`, {
         method: 'POST',
         body: JSON.stringify( cartItems ),
         headers: {

@@ -14,13 +14,10 @@ const Home = () => {
   const [feedbackMessage, setFeedbackMessage] = useState('');
   const [quantity, setQuantity] = useState(1);
 
-  
-    // Base de datos MockApi
-  const urlData = import.meta.env.VITE_BACKEND_URL;
 
 const fetchData = async () => {
   try {
-    const response = await fetch(`${urlData}/products`);
+    const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/products`);
     if (!response.ok) {
       throw new Error('No pudo cargarse el producto');
     }

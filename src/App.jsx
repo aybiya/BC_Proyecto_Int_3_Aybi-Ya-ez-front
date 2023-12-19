@@ -14,7 +14,8 @@ import 'react-toastify/dist/ReactToastify.css';
 
 
 const App = () => {
-
+  console.log(import.meta.env.VITE_BACKEND_URL)
+  
   return (
     <>
       <CartProvider>

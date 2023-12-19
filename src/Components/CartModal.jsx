@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { CartContext } from "../context/CartContext";
+import { CartContext } from "../Context/CartContext";
 import { FaTimesCircle } from 'react-icons/fa';
 import { FaTrash } from "react-icons/fa6";
 import ReactModal from 'react-modal';

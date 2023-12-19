@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { CartProvider } from "./context/CartContext";
+import { CartProvider } from "./Context/CartContext";
 import { Routes, Route } from 'react-router-dom';
 import "./App.css";
 import { ToastContainer } from 'react-toastify';

@@ -95,20 +95,6 @@ export const CartContext = createContext();
 
   };
 
-
-  const decrementQuantity = (productId) => {
-    setSelectedQuantities((prevQuantities) => {
-      const updatedQuantities = { ...prevQuantities };
-      const selectedQuantity = updatedQuantities[productId];
-      if (selectedQuantity > 1) {
-        updatedQuantities[productId] = selectedQuantity - 1;
-      } else {
-        delete updatedQuantities[productId];
-      }
-      return updatedQuantities;
-    });
-  };
-  
   const removeProduct = (productId) => {
     const updatedCartItems = cartItems.map((item) => {
       if (item._id === productId) {

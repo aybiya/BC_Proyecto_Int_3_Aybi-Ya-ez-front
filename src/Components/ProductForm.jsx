@@ -95,46 +95,46 @@ const ProductForm = ({ addProduct }) => {
     return true;
   };
 
+  const clearForm = () => {
+    setFormData({
+      image: '',
+      size: '',
+      model: '',
+      description: '',
+      price: '',
+      stock: '',
+      shipping: false,
+      _id: '',
+    });
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const isValid = validateForm();
-    
+
     if (isValid) {
       const urlData = import.meta.env.VITE_BACKEND_URL;
       try {
         const price = parseFloat(formData.price);
         const id = parseFloat(formData._id);
-  
+
         const response = await fetch(`${urlData}/products`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json; charset=UTF-8',
           },
-          body: JSON.stringify({ ...formData, price, id }), 
+          body: JSON.stringify({ ...formData, price, id }),
         });
-  
-        if (response.ok) {
+        
           const newProduct = await response.json();
           addProduct(newProduct);
-  
-          setFormData({
-            image: '',
-            size: '',
-            model: '',
-            description: '',
-            price: '',
-            stock: '',
-            shipping: false,
-            _id: '',
-          });
-  
-          toast.success('Producto agregado exitosamente!');
-        } 
+          clearForm();
+    
+        toast.success('Producto agregado exitosamente!');
       } catch (error) {
-        console.error('Error adding product', error);
-        toast.error('Error al agregar el producto');
+        console.error('Error during fetch:', error);
       }
-    } 
+    }
   };
 
   const isValidUrl = (url) => {
@@ -254,7 +254,7 @@ const ProductForm = ({ addProduct }) => {
         </article>
         </div>
         <div className='form-product__btn'>
-        <button type="submit" onClick={handleAddProductBtn}>Agregar</button>
+        <button type="submit">Agregar</button>
         </div>
       </form>
     </section>
